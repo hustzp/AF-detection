@@ -10,7 +10,7 @@ The folder /data contains the public testing data that were used in the paper an
 Model
 	The model used in the paper is a one-dimensional UNET combined with LSTM, the architecture of the model is shown in Figure 1. The model receives an input tensor with dimension (N, 90, 1), and returns an output tensor with dimension (N, 90), for which N is the batch size. The model presented in /code is a trained model and can be directly used to test the data.
 
-![image](https://github.com/hustzp/AF-detection/edit/main/Source.png)
+![image](https://github.com/hustzp/AF-detection/edit/main/source/Source.png)
 
 Figure 1. Architecture of the one-dimensional UNET combined with LSTM.
 
