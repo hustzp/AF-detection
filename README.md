@@ -15,7 +15,7 @@ Model
 Figure 1. Architecture of the one-dimensional UNET combined with LSTM.
 
 Input of the model: shape = (N, 90, 1). The input tensor should contain the 90 points of the RR interval sample. 90 RR interval samples were extracted from the test data. All RR intervals are represented at the scale 1 s, therefore, if the input data are in ms it should be divided by 1000 before feeding it to the neural network model.
-Output of the model: shape = (N, 90). The output contains the probability whether each RR interval is atrial fibrillation.
+Output of the model: shape = (N, 90). The output contains the probability of each RR interval to be atrial fibrillation.
 
 Test data
 /data contains testing data of four public datasets that are used in this paper, including AFDB, MITDB, NSRDB, NSRRRIDB. The python package wfdb can be used to read and process the datasets and obtain the data of ECG signals. The files in AFDB and NSRDB are larger than 25 MB and cannot be uploaded to this website. You can go to the websites below to download the two datasets.
@@ -24,11 +24,6 @@ NSRDB: https://physionet.org/content/nsrdb/1.0.0/
 
 Results
 The results of AF diagnosis in “heartbeat-level” and “patient-level” are stored in the folder /results/output.
-
-Installation guide for running Demo
-1, Select “Set as File to Run” in the dropdown menu of the script main.py and the file run will be generated.
-2, Click the button “Reproducible Run” to run the file run.
-3, After running, the results will be saved in the folder /results/output.
 
 License
 Any data use will be restricted to noncommercial research purposes, and the data will only be made available on execution of appropriate data use agreements. This code is to be used only for educational and research purposes. Any commercial use, including the distribution, sale, lease, license, or other transfer of the code to a third party, is prohibited. 
