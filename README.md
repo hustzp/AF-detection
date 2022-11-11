@@ -18,10 +18,9 @@ Input of the model: shape = (N, 90, 1). The input tensor should contain the 90 p
 Output of the model: shape = (N, 90). The output contains the probability of each RR interval to be atrial fibrillation.
 
 ## Test data
-/data contains testing data of four public datasets that are used in this paper, including AFDB, MITDB, NSRDB, NSRRRIDB. The python package wfdb can be used to read and process the datasets and obtain the data of ECG signals. The files in AFDB and NSRDB are larger than 25 MB and cannot be uploaded to this website. You can go to the websites below to download the two datasets.
-AFDB: https://physionet.org/content/afdb/1.0.0/
-NSRDB: https://physionet.org/content/nsrdb/1.0.0/
-It is worth to noting that 
+/data contains testing data of four public datasets that are used in this paper, including AFDB, MITDB, NSRDB, NSRRRIDB. The python package wfdb can be used to read and process the datasets and obtain the data of ECG signals. The files in AFDB and NSRDB are larger than 25 MB and cannot be uploaded to this website. For convenience, we also uploaded all the four datasets and the code to the following website. 
+https://drive.google.com/file/d/1rBheXDYj-Dpfl-bnHskp_F0tk8nieTAJ/view?usp=sharing
+It is worth noting that the data of the four datasets must be complete before running this demo. 
 
 ## Results
 The results of AF diagnosis in “heartbeat-level” and “patient-level” are stored in the folder /results/output.
@@ -32,7 +31,7 @@ The results of AF diagnosis in “heartbeat-level” and “patient-level” are
 	$ unzip Demo.zip
 3, Run the script of main.py, using the command line:
 	$ python main.py
-After running, there will be two .xlsx files in the folder Demo/Output. Expected run time for demo on a "normal" desktop computer (CPU: Intel(R) Core(TM) i5-9500 @ 3.00GHz, GPU: NVIDIA GeForce GT 710, 2GB, RAM: 16GB) is about 1515.3 s.
+After running, there will be two .xlsx files in the folder Demo/Output. Expected run time for demo on a "normal" desktop computer (CPU: Intel(R) Core(TM) i5-9500 @ 3.00GHz, GPU: NVIDIA GeForce GT 710, 2GB, RAM: 16GB) is about 1236.1 s.
 
 License
 Any data use will be restricted to noncommercial research purposes, and the data will only be made available on execution of appropriate data use agreements. This code is to be used only for educational and research purposes. Any commercial use, including the distribution, sale, lease, license, or other transfer of the code to a third party, is prohibited. 
