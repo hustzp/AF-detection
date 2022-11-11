@@ -19,7 +19,7 @@ Output of the model: shape = (N, 90). The output contains the probability of eac
 
 ## Test data
 /data contains testing data of four public datasets that are used in this paper, including AFDB, MITDB, NSRDB, NSRRRIDB. The python package wfdb can be used to read and process the datasets and obtain the data of ECG signals. The files in AFDB and NSRDB are larger than 25 MB and cannot be uploaded to this website. `For convenience, we also uploaded all the four datasets and the code to the following website.` 
-https://drive.google.com/file/d/1rBheXDYj-Dpfl-bnHskp_F0tk8nieTAJ/view?usp=sharing
+https://drive.google.com/file/d/18B32eUOyIWOifUr1dqyI6tg_AeonKggF/view?usp=share_link
 
 `It is worth noting that the data of the four datasets must be complete before running this demo.`
 
