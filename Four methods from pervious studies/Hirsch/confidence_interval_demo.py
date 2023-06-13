@@ -7,11 +7,11 @@ from sklearn.metrics import roc_auc_score
 
 def bootstrap(label, pred, B, c, func):
     """
-    计算bootstrap置信区间
-    :param B: 抽样次数 通常B>=1000
-    :param c: 置信水平
-    :param func: 样本估计量
-    :return: bootstrap置信区间上下限
+    obtain bootstrap confidence interval
+    :param B: sampling frequency B>=1000
+    :param c: confidence level
+    :param func: Sample Estimator
+    :return: Upper and lower limits of confidence intervals
     """
     n = len(label)
     sample_result_arr = []
