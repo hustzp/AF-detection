@@ -8,8 +8,8 @@ import argparse
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-data_path', type=str) # AFDB数据 .csv文件的路径
-    parser.add_argument('-save_name', type=str) # 阈值搜寻结果保存路径
+    parser.add_argument('-data_path', type=str) # AFDB data, path of the files .csv
+    parser.add_argument('-save_name', type=str) # path of threshold searching
 
     args = parser.parse_args()
 
