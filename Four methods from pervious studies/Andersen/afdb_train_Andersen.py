@@ -17,9 +17,9 @@ tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-data_path', type=str) # AFDB数据 .csv文件的路径
-    parser.add_argument('-segment_data_save_path', type=str) # AFDB数据集滑动采样后的数据保存路径
-    parser.add_argument('-save_name', type=str) # 模型保存路径
+    parser.add_argument('-data_path', type=str) # data of AFDB, pathway of the file of .csv
+    parser.add_argument('-segment_data_save_path', type=str) # The data pathway after sliding sampling of AFDB dataset
+    parser.add_argument('-save_name', type=str) # pathway of the model
 
     args = parser.parse_args()
 
@@ -30,9 +30,7 @@ if __name__ == '__main__':
     # segment_data_save_path = '/nas/liuyuhang/ecg_af_rri/data/afdb_npy'
     # save_name = './models/afdb/cnn_lstm'
 
-    # Segment records into 30 RRIs
-    # 将每份记录的数据采样为30RRI的样本
-    # 滑动采样间隔10RRI
+    # recording were divided into 30 RRIs sliding window with step of 10 RRIs
     len_rri = 30
     sample_shift = 10
     af_threshold = 0.5
