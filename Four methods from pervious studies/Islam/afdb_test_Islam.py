@@ -7,7 +7,7 @@ import argparse
 import sklearn
 
 
-# 根据rri_data与label计算房颤片段长度
+# obtain the length of AF episodes according to the rri_data and labels
 def label2length(data_, label_):
     data = deepcopy(data_)
     label = deepcopy(label_)
@@ -27,10 +27,10 @@ def label2length(data_, label_):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-data_path', type=str) # AFDB数据 .csv文件的路径
-    parser.add_argument('-ts_save_name', type=str) # 阈值搜寻结果保存路径
-    parser.add_argument('-labels_save_path', type=str) # 预测结果以及标签的保存路径
-    parser.add_argument('-result_save_path', type=str)  # 统计结果保存路径
+    parser.add_argument('-data_path', type=str) # AFDB data, path of the files .csv
+    parser.add_argument('-ts_save_name', type=str) # path of threshold results
+    parser.add_argument('-labels_save_path', type=str) # path of predicted results and labels
+    parser.add_argument('-result_save_path', type=str)  # path of results
 
     args = parser.parse_args()
 
@@ -50,7 +50,7 @@ if __name__ == '__main__':
 
     afdb_5fold_list = pd.read_csv('./afdb_5fold_list.csv', header=[0], index_col=None, dtype='str')
     for fold in range(5):
-        # 获取测试集上的最佳阈值
+        # obtain the best threshold in testing sets
         ts_result = pd.read_csv('%s_fold%d.csv' % (ts_save_name, fold+1))
         Thresholds = ts_result['Threshold'].values
         Metrics = ts_result['Acc'].values
@@ -83,7 +83,7 @@ if __name__ == '__main__':
     pred_total = np.concatenate(pred_list)
     label_total = np.concatenate(label_list)
 
-    # 所有心拍的统计结果
+    # results on heartbeats
     [sensitivity, specificity, accuracy] = data_acc(label_total, pred_total)
     [acc_lower, acc_higher] = bootstrap(label_total, pred_total, 1000, 0.95, data_acc)
     [AUC] = data_auc(label_total, pred_total)
@@ -96,7 +96,7 @@ if __name__ == '__main__':
     pd.DataFrame([fp, tp, th]).T.to_csv('%s/afdb_roc.csv' % (result_save_path), header=['fpr', 'tpr', 'thresholds'], index=None, mode='w')
 
 
-    # 小于30s房颤片段的心拍的统计结果
+    # results of AF episodes of less than 30 s
     records = list(set([file.split('_')[0] for file in os.listdir(labels_save_path)]))
     results = []
     labels_below30s = []
@@ -124,7 +124,7 @@ if __name__ == '__main__':
     results.append(result)
     pd.DataFrame(results).to_csv('%s/afdb_below30s_results.csv' % (result_save_path), header=['record', 'sensitivity', 'specificity', 'accuracy', 'acc_lower', 'acc_higher'], index=None, mode='w')
 
-    # 30s-60s房颤片段的心拍的统计结果
+    # results of AF episodes of 30s-60s
     records = list(set([file.split('_')[0] for file in os.listdir(labels_save_path)]))
     results = []
     labels_30to60s = []
@@ -152,7 +152,7 @@ if __name__ == '__main__':
     results.append(result)
     pd.DataFrame(results).to_csv('%s/afdb_30to60s_results.csv' % (result_save_path), header=['record', 'sensitivity', 'specificity', 'accuracy', 'acc_lower', 'acc_higher'], index=None, mode='w')
 
-    # 大于60s房颤片段的心拍的统计结果
+    # results of AF episodes of more than 60s
     records = list(set([file.split('_')[0] for file in os.listdir(labels_save_path)]))
     results = []
     labels_over60s = []
